@@ -1,0 +1,24 @@
+{
+	"OA Post": {
+		"prefix": "oapost",
+		"body": [
+			"@OA\\Post(",
+			"\tpath=\"${1:/api/v1/path}\",",
+			"\ttags={\"${2:Tag}\"},",
+			"\tsummary=\"${3:Summary}\",",
+			"\t@OA\\Response(",
+			"\t\tresponse=200,",
+			"\t\tdescription=\"${4:Success}\"",
+			"\t)",
+			")$0"
+		],
+		"description": "Create a Swagger Post annotation"
+	},
+	"OA Property": {
+		"prefix": "oaprop",
+		"body": [
+			"@OA\\Property(property=\"${1:name}\", type=\"${2:string}\", example=\"${3:value}\")$0"
+		],
+		"description": "Create a Swagger Property"
+	}
+}

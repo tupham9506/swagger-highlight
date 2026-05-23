@@ -1,0 +1,47 @@
+{
+  "name": "swagger-highlight",
+  "displayName": "Swagger Highlight",
+  "description": "Highlighting for Swagger @OA annotations in PHP docblocks.",
+  "version": "0.0.1",
+  "publisher": "Tom",
+  "main": "./extension.js",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onLanguage:php"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "php",
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "php.swagger.injection",
+        "path": "./syntaxes/l5-swagger.tmLanguage.json",
+        "injectTo": [
+          "source.php",
+          "text.html.php"
+        ]
+      }
+    ],
+    "snippets": [
+      {
+        "language": "php",
+        "path": "./snippets/swagger.code-snippets"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "echo 'Extension installed successfully'"
+  }
+}

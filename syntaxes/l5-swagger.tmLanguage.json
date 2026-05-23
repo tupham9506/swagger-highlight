@@ -1,0 +1,84 @@
+{
+  "name": "Swagger Highlight",
+  "scopeName": "php.swagger.injection",
+  "injectionSelector": "L:comment.block.documentation.php, L:comment.block.php, L:comment.block.documentation.phpdoc.php",
+  "patterns": [
+    {
+      "include": "#annotations"
+    }
+  ],
+  "repository": {
+    "all": {
+      "patterns": [
+        {
+          "match": "^\\s*(\\*)",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.php" }
+          }
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#annotations"
+        },
+        {
+          "include": "#base-elements"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.swagger",
+          "match": "\"(?:\\\\.|[^\"\\\\])*\""
+        },
+        {
+          "name": "string.quoted.single.swagger",
+          "match": "'(?:\\\\.|[^'\\\\])*'"
+        }
+      ]
+    },
+    "annotations": {
+      "patterns": [
+        {
+          "begin": "(@OA\\\\[a-zA-Z]+)\\s*(\\()",
+          "beginCaptures": {
+            "1": { "name": "entity.name.tag.swagger" },
+            "2": { "name": "entity.name.tag.swagger-bracket" }
+          },
+          "end": "(\\))|(\\*/)",
+          "endCaptures": {
+            "1": { "name": "entity.name.tag.swagger-bracket" },
+            "2": { "name": "comment.block.documentation.php" }
+          },
+          "patterns": [{ "include": "#all" }]
+        }
+      ]
+    },
+    "base-elements": {
+      "patterns": [
+        {
+          "name": "variable.other.property.swagger",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*(?=\\s*=)"
+        },
+        {
+          "name": "constant.numeric.php",
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+        },
+        {
+          "name": "constant.language.boolean.php",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "keyword.operator.assignment.php",
+          "match": "="
+        },
+        {
+          "name": "punctuation.definition.string.end.php",
+          "match": "[\\{\\}\\,\\;\\:]"
+        }
+      ]
+    }
+  }
+}
