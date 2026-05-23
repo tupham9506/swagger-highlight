@@ -4,6 +4,10 @@
   "description": "Highlighting for Swagger @OA annotations in PHP docblocks.",
   "version": "0.0.1",
   "publisher": "Tom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tupham9506/swagger-highlight"
+  },
   "main": "./extension.js",
   "engines": {
     "vscode": "^1.80.0"
